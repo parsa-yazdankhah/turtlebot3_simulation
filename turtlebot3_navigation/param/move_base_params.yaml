@@ -1,0 +1,16 @@
+# base_global_planner: move_baseで使用するグローバルプランナーのプラグインを指定。
+# base_local_planner: move_baseで使用するローカルプランナーのプラグインを指定。
+
+# 障害物をコストマップに残し続けておくか。
+shutdown_costmaps: false
+# cmd_velトピック（前進速度と回転速度）をpublishする周波数。
+controller_frequency: 10.0
+# 有効なパスが見つからなかった時にプランナーがどれだけ待機するか。
+planner_patience: 5.0
+controller_patience: 15.0
+conservative_reset_dist: 3.0
+# global plannerがグローバルパスを計算する頻度。
+planner_frequency: 5.0
+oscillation_timeout: 10.0
+oscillation_distance: 0.2
+

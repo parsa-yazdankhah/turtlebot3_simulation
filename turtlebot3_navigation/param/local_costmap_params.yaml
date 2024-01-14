@@ -1,0 +1,22 @@
+local_costmap:
+  # ロボットから得られるオドメトリ情報のトピック名。
+  global_frame: odom
+  # ロボットの足元のフレーム。
+  robot_base_frame: base_footprint
+
+  # local_costmapを更新する頻度。（Hz）
+  update_frequency: 10.0
+  # rvizで可視化するためにcostmapなどの情報をpublishする頻度。[Hz]
+  publish_frequency: 10.0
+  transform_tolerance: 0.5  
+
+  # 静的なマップかどうか？？
+  static_map: false
+  # 自分の周りの一部だけのcostmapを使うかどうか。ローカルの場合は、trueに設定
+  rolling_window: true
+  # ローカルコストマップを計算する範囲。[m]
+  width: 3
+  # ローカルコストマップを計算する範囲。[m]
+  height: 3
+  # ローカルコストマップの解像度。[m/pixel]
+  resolution: 0.05

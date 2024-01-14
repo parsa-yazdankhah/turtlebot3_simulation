@@ -1,0 +1,11 @@
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Changelog for urdf files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+2020-03-02
+------------------
+ * Copy urdf files from turtlebot3_description (GitHub: https://github.com/ROBOTIS-GIT/turtlebot3.git).
+ * Modify lidar name and position in turtlebot3_waffle_pi.urdf.xacro.
+ * Modifier: T.Anazawa
+ 
+ 

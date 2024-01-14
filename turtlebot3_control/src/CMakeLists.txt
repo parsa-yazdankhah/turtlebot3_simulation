@@ -1,0 +1,2 @@
+choreonoid_add_simple_controller(TurtleBot3RosTeleopController TurtleBot3RosTeleopController.cpp)
+target_link_libraries(TurtleBot3RosTeleopController ${catkin_LIBRARIES})

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>turtlebot3_slam</name>
+  <version>1.0.0</version>
+  <description>
+    The turtlebot_slam package provides roslaunch scripts for starting the SLAM
+  </description>
+  <license>MIT</license>
+  <maintainer email="tsuyoshian@fsk-brain.co.jp">Tsuyoshi Anazawa</maintainer>
+  <author email="tsuyoshian@fsk-brain.co.jp">Tsuyoshi Anazawa</author>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>choreonoid</depend>
+  <depend>choreonoid_ros</depend>
+  <depend>std_msgs</depend>
+  <depend>trajectory_msgs</depend>
+
+  <export>
+    <build_type>cmake</build_type>
+  </export>
+	<depend>roscpp</depend>
+  
+  <depend>sensor_msgs</depend>
+  <exec_depend>turtlebot3_bringup</exec_depend>
+</package>

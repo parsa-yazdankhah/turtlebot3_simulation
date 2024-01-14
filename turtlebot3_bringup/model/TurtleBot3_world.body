@@ -1,0 +1,307 @@
+format: ChoreonoidBody
+formatVersion: 1.0
+angleUnit: degree
+name: TurtleBot3_world
+
+SCALE: &SCALE [ 0.55, 0.55, 0.55 ]
+
+links:
+  -
+    name: Floor
+    translation: [ 0, 0, -0.25 ]
+    jointType: fixed
+    mass: 150.0
+    material: Ground
+    elements:
+      Shape:
+        geometry: { type: Box, size: [ 20.0, 20.0, 0.5 ] }
+        appearance:
+          material:
+            diffuseColor: [ 0.5, 0.5, 0.5 ]
+            specularColor: [ 0.7, 0.7, 0.7 ]
+            shininess: 0.3
+  -
+    name: Wall
+    parent: Floor
+    translation: [ 0, 0, 0.25 ]
+    jointType: fixed
+    mass: 50.0
+    elements:
+      -
+        type: Visual
+        rotation: [ 0, 0, 1, 90 ]
+        scale: [ 0.25, 0.25, 0.25 ]
+        elements:
+          Resource: { uri: "resource/turtlebot3_world/wall.dae" }
+      -
+        type: Collision
+        translation: [ 0, 0, 0.635 ]
+        elements:
+          -
+            name: Right_wall
+            type: Transform
+            translation: [ 0.0, -2.6985, 0.0 ]
+            elements: &ONE_SIDE_GEO
+              Shape:
+                geometry: { type: Box, size: [ 3.3, 0.317, 1.27 ] }
+          -
+            name: Left_wall
+            type: Transform
+            translation: [ 0.0, 2.6985, 0.0 ]
+            elements: *ONE_SIDE_GEO
+#          -
+#            name: Right_front_wall
+#            type: Transform
+#            translation: [ 2.33754, -1.34925, 0.0 ]
+#            rotation: [ 0, 0, 1, 60 ]
+#            elements: *ONE_SIDE_GEO
+#          -
+#            name: Right_back_wall
+#            type: Transform
+#            translation: [ -2.33754, -1.34925, 0.0 ]
+#            rotation: [ 0, 0, 1, -60 ]
+#            elements: *ONE_SIDE_GEO
+#          -
+#            name: Left_front_wall
+#            type: Transform
+#            translation: [ 2.33754, 1.34925, 0.0 ]
+#            rotation: [ 0, 0, 1, -60 ]
+#            elements: *ONE_SIDE_GEO
+#          -
+#            name: Left_back_wall
+#            type: Transform
+#            translation: [ -2.33754, 1.34925, 0.0 ]
+#            rotation: [ 0, 0, 1, 60 ]
+#            elements: *ONE_SIDE_GEO
+  -
+    name: Right_front_wall
+    parent: Wall
+    translation: [ 2.33754, -1.34925, 0.635 ]
+    rotation: [ 0, 0, 1, 60 ]
+    jointType: fixed
+    elements: &ONE_SIDE_COLL
+      Collision:
+        elements:
+          Transform:
+            elements: *ONE_SIDE_GEO
+  -
+    name: Right_back_wall
+    parent: Wall
+    translation: [ -2.33754, -1.34925, 0.635 ]
+    rotation: [ 0, 0, 1, -60 ]
+    jointType: fixed
+    elements: *ONE_SIDE_COLL
+  -
+    name: Left_front_wall
+    parent: Wall
+    translation: [ 2.33754, 1.34925, 0.635 ]
+    rotation: [ 0, 0, 1, -60 ]
+    jointType: fixed
+    elements: *ONE_SIDE_COLL
+  -
+    name: Left_back_wall
+    parent: Wall
+    translation: [ -2.33754, 1.34925, 0.635 ]
+    rotation: [ 0, 0, 1, 60 ]
+    jointType: fixed
+    elements: *ONE_SIDE_COLL
+  -
+    name: Head
+    parent: Wall
+    translation: [ 3.5, 0, 0 ]
+    jointType: fixed
+    mass: 20.0
+    elements:
+      -
+        type: Visual
+        scale: [ 0.8, 0.8, 0.8 ]
+        elements: &HEXAGON_VISUAL
+          Resource: { uri: "resource/turtlebot3_world/hexagon.dae" }
+      -
+        type: Collision
+        translation: [ 0.0, 0.0, 1.016 ]
+        elements: &HEXAGON_COLL
+          -
+            name: Box0
+            type: Transform
+            elements: &LARGE_HEXAGON_GEO
+              Shape:
+                geometry: { type: Box, size: [ 1.174, 2.032, 2.032 ] }
+#          -
+#            name: Box1
+#            type: Transform
+#            rotation: [ 0, 0, 1, 60 ]
+#            elements: *LARGE_HEXAGON_GEO
+#          -
+#            name: Box2
+#            type: Transform
+#            rotation: [ 0, 0, 1, -60 ]
+#            elements: *LARGE_HEXAGON_GEO
+  -
+    name: Head_box1
+    parent: Head
+    translation: [ 0.0, 0.0, 1.016 ]
+    rotation: [ 0, 0, 1, 60 ]
+    jointType: fixed
+    elements: &HEAD_BOX_COLL
+      Collision:
+        elements:
+          Transform:
+            elements: *LARGE_HEXAGON_GEO
+  -
+    name: Head_box2
+    parent: Head
+    translation: [ 0.0, 0.0, 1.016 ]
+    rotation: [ 0, 0, 1, -60 ]
+    elements: *HEAD_BOX_COLL
+  -
+    name: Right_hand
+    parent: Wall
+    translation: [ 1.8, -2.7, 0 ]
+    jointType: fixed
+    elements: &SMALL_HEXAGON
+      -
+        type: RigidBody
+        mass: 12.0
+      -
+        type: Visual
+        scale: *SCALE
+        elements: *HEXAGON_VISUAL
+      -
+        type: Collision
+        translation: [ 0.0, 0.0, 0.6985 ]
+        scale: [ 0.6875, 0.6875, 0.6875 ]
+        elements: *HEXAGON_COLL
+  -
+    name: Right_hand_box1
+    parent: Right_hand
+    rotation: [ 0, 0, 1, 60 ]
+    jointType: fixed
+    elements: &HAND_BOX_COLL
+      Collision:
+        translation: [ 0.0, 0.0, 0.6985 ]
+        scale: [ 0.6875, 0.6875, 0.6875 ]
+        elements:
+          Transform:
+            elements: *LARGE_HEXAGON_GEO
+  -
+    name: Right_hand_box2
+    parent: Right_hand
+    rotation: [ 0, 0, 1, -60 ]
+    jointType: fixed
+    elements: *HAND_BOX_COLL
+  -
+    name: Left_hand
+    parent: Wall
+    translation: [ 1.8, 2.7, 0 ]
+    jointType: fixed
+    elements: *SMALL_HEXAGON
+  -
+    name: Left_hand_box1
+    parent: Left_hand
+    rotation: [ 0, 0, 1, 60 ]
+    jointType: fixed
+    elements: *HAND_BOX_COLL
+  -
+    name: Left_hand_box2
+    parent: Left_hand
+    rotation: [ 0, 0, 1, -60 ]
+    jointType: fixed
+    elements: *HAND_BOX_COLL
+  -
+    name: Right_foot
+    parent: Wall
+    translation: [ -1.8, -2.7, 0 ]
+    jointType: fixed
+    elements: *SMALL_HEXAGON
+  -
+    name: Right_foot_box1
+    parent: Right_foot
+    rotation: [ 0, 0, 1, 60 ]
+    jointType: fixed
+    elements: *HAND_BOX_COLL
+  -
+    name: Right_foot_box2
+    parent: Right_foot
+    rotation: [ 0, 0, 1, -60 ]
+    jointType: fixed
+    elements: *HAND_BOX_COLL
+  -
+    name: Left_foot
+    parent: Wall
+    translation: [ -1.8, 2.7, 0 ]
+    jointType: fixed
+    elements: *SMALL_HEXAGON
+  -
+    name: Left_foot_box1
+    parent: Left_foot
+    rotation: [ 0, 0, 1, 60 ]
+    jointType: fixed
+    elements: *HAND_BOX_COLL
+  -
+    name: Left_foot_box2
+    parent: Left_foot
+    rotation: [ 0, 0, 1, -60 ]
+    jointType: fixed
+    elements: *HAND_BOX_COLL
+  -
+    name: Pillar0
+    parent: Floor
+    translation: [ 1.1, 1.1, 0.0 ]
+    jointType: fixed
+    elements: &PILLAR
+      type: RigidBody
+      translation: [ 0, 0, 0.5 ]
+      mass: 10.0
+      elements:
+        Shape:
+          rotation: [ 1, 0, 0, 90 ]
+          geometry: { type: Cylinder, radius: 0.15, height: 0.5 }
+  -
+    name: Pillar1
+    parent: Floor
+    translation: [ 1.1, 0.0, 0.0 ]
+    jointType: fixed
+    elements: *PILLAR
+  -
+    name: Pillar2
+    parent: Floor
+    translation: [ 1.1, -1.1, 0.0 ]
+    jointType: fixed
+    elements: *PILLAR
+  -
+    name: Pillar3
+    parent: Floor
+    translation: [ 0.0, 1.1, 0.0 ]
+    jointType: fixed
+    elements: *PILLAR
+  -
+    name: Pillar4
+    parent: Floor
+    translation: [ 0.0, 0.0, 0.0 ]
+    jointType: fixed
+    elements: *PILLAR
+  -
+    name: Pillar5
+    parent: Floor
+    translation: [ 0.0, -1.1, 0.0 ]
+    jointType: fixed
+    elements: *PILLAR
+  -
+    name: Pillar6
+    parent: Floor
+    translation: [ -1.1, 1.1, 0.0 ]
+    jointType: fixed
+    elements: *PILLAR
+  -
+    name: Pillar7
+    parent: Floor
+    translation: [ -1.1, 0.0, 0.0 ]
+    jointType: fixed
+    elements: *PILLAR
+  -
+    name: Pillar8
+    parent: Floor
+    translation: [ -1.1, -1.1, 0.0 ]
+    jointType: fixed
+    elements: *PILLAR

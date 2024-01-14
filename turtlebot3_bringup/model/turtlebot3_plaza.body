@@ -1,0 +1,129 @@
+#####################################################################
+#
+# turtlebot3_plaza.body
+# 
+#  Created on: 2021/06/18
+#  Last updated: 2021/06/18
+#           Author: Tsuyoshi Anazawa
+#
+#          Outline: TurtleBot3の広場モデル
+#
+#####################################################################
+format: ChoreonoidBody
+formatVersion: 1.0
+angleUnit: degree
+name: turtlebot3_plaza
+rootLink: ground_plane
+
+links:
+  -
+    name: ground_plane
+    jointType: fixed
+    mass: 1.15E06
+    inertia: [
+      9.5833E08,       0.0,       0.0,
+            0.0, 9.5833E08,       0.0,
+            0.0,       0.0, 3.8333E09 ]
+    material: Ground
+    elements:
+      Shape:
+        translation: [ 0.0, 0.0, -0.025 ]
+        geometry: { type: Box, size: [ 100.0, 100.0, 0.05 ] }
+        appearance:
+          material:
+            diffuseColor: [ 0.7, 0.7, 0.7 ]
+            specularColor: [ 0.01, 0.01, 0.01 ]
+            shininess: 0.1
+  -
+    name: Wall_0
+    parent: ground_plane
+    translation: [ -2.425, 0.0, 0.25 ]
+    rotation: [ 0, 0, 1, 90 ]
+    elements: &Wall_0
+      RigidBody:
+        mass: 191.25
+        inertia: [
+          4.3430,      0.0,      0.0,
+             0.0, 402.4219,      0.0,
+             0.0,      0.0, 398.7961 ]
+        elements:
+          Shape:
+            geometry: { type: Box, size: [ 5.0, 0.15, 0.5 ] }
+            appearance: &Wood_app_2_1
+              texture: { url: "resource/texture/wood.jpg" }
+              textureTransform:
+                scale: [ 2.0, 1.0 ]
+  -
+    name: Wall_11
+    parent: ground_plane
+    translation: [ -1.937, -1.467, 0.25 ]
+    jointType: fixed
+    elements: &Wall_11
+      RigidBody:
+        mass: 38.25
+        inertia: [
+          0.8686,    0.0,    0.0,
+             0.0, 3.9844,    0.0,
+             0.0,    0.0, 3.2592 ]
+        elements:
+          Shape:
+            geometry: { type: Box, size: [ 1.0, 0.15, 0.5 ] }
+            appearance: &Wood_app_1_1
+              texture: { url: "resource/texture/wood.jpg" }
+  -
+    name: Wall_13
+    parent: ground_plane
+    translation: [ -0.22, -1.866, 0.25 ]
+    rotation: [ 0, 0, 1, -90 ]
+    elements: *Wall_11
+  -
+    name: Wall_15
+    parent: ground_plane
+    translation: [ 1.195, -1.002, 0.25 ]
+    rotation: [ 0, 0, 1, 90 ]
+    elements: *Wall_11
+  -
+    name: Wall_17
+    parent: ground_plane
+    translation: [ 1.288, 1.93, 0.25 ]
+    rotation: [ 0, 0, 1, -90 ]
+    elements: *Wall_11
+  -
+    name: Wall_19
+    parent: ground_plane
+    translation: [ 1.91128, 0.4632, 0.25 ]
+    elements: *Wall_11
+  -
+    name: Wall_2
+    parent: ground_plane
+    translation: [ 0.0, 2.425, 0.25 ]
+    elements: *Wall_0
+  -
+    name: Wall_21
+    parent: ground_plane
+    translation: [ 0.204, 0.215, 0.25 ]
+    rotation: [ 0, 0, 1, -90 ]
+    elements: *Wall_11
+  -
+    name: Wall_3
+    parent: ground_plane
+    translation: [ 2.425, 0.0, 0.25 ]
+    rotation: [ 0, 0, 1, -90 ]
+    elements: *Wall_0
+  -
+    name: Wall_4
+    parent: ground_plane
+    translation: [ 0.0, -2.425, 0.25 ]
+    rotation: [ 0, 0, 1, 180 ]
+    elements: *Wall_0
+  -
+    name: Wall_7
+    parent: ground_plane
+    translation: [ -1.064, 1.548, 0.25 ]
+    elements: *Wall_11
+  -
+    name: Wall_9
+    parent: ground_plane
+    translation: [ -1.502, 0.092, 0.25 ]
+    rotation: [ 0, 0, 1, -90 ]
+    elements: *Wall_11

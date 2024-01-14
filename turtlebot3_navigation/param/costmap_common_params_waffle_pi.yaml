@@ -1,0 +1,30 @@
+# ロボットとの距離がobstacle_range以下のオブジェクトは障害物としてみなし、コストマップに反映
+# local_costmapの一辺の長さの半分程度が良いように思える。
+obstacle_range: 3.0
+# ロボットとの距離がraytrace_range以下のオブジェクトが検出された場合、
+# そのオブジェクトの内側のコストマップの障害物がクリアされる。
+# obstacle_range + 0.5 程度
+raytrace_range: 3.5
+
+# ロボットの形状を多角形で指定することができる。
+# footprintの形状に応じてコストマップのdefinitery in collisionとpossibly in collisionの径が決定される。
+# footprint: [[-0.205, -0.155], [-0.205, 0.155], [0.077, 0.155], [0.077, -0.155]]
+footprint: [[-0.240, -0.155], [-0.240, 0.155], [0.092, 0.155], [0.092, -0.155]]
+
+# footpritによる多角形でのロボットの形状を指定する代わりに、
+# ロボットを円とみなしてその半径を指定することができる。
+# robot_radius: 0.17
+
+inflation_radius: 1.0
+cost_scaling_factor: 3.0
+
+map_type: costmap
+# 以下に設定するセンサ情報の名前空間を指定する。
+observation_sources: scan
+# topic: コストマップに使用されるセンサのトピック。observation_sourcesで指定した値
+# sensor_frame: センサの座標系の指定。
+# data_type: センサから送られてくるデータタイプ。LaserScan、PointCloud、PointCloud2のいずれかが指定できる。
+# clearing: センサデータを障害物のクリアに使うか。
+# marking: このセンサデータを障害物としてコストマップに反映させるか。
+# inf_is_vaild: レーザなどで無限遠を検出した際にscanの配列にinfの値が入ることがある。その値を使用するかどうか。（trueにするとinfの値を障害物のクリアに用いることができる．）
+scan: { sensor_frame: LiDAR, data_type: LaserScan, topic: scan, marking: true, clearing: true }

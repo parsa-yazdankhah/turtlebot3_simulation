@@ -1,0 +1,45 @@
+format: ChoreonoidBody
+formatVersion: 1.0
+
+name: "Room"
+rootLink: base
+links:
+  -
+    name: base
+    jointType: fixed
+    elements:
+      -
+        type: Shape
+        translation: [ 0, 0, -0.01 ]
+        geometry: { type: Box, size: [ 10, 10, 0.02 ] }
+        appearance:
+          material:
+            diffuseColor: [ 0.5, 0.5, 0.5 ]
+      -
+        type: Shape
+        translation: [ 0, -5, 1.25 ]
+        geometry: { type: Box, size: [ 10.2, 0.2, 2.5 ] }
+        appearance:
+          material:
+            diffuseColor: [ 1.0, 1.0, 1.0 ]
+      -
+        type: Shape
+        translation: [ 0, 5, 1.25 ]
+        geometry: { type: Box, size: [ 10.2, 0.2, 2.5 ] }
+        appearance:
+          material:
+            diffuseColor: [ 1.0, 1.0, 1.0 ]
+      -
+        type: Shape
+        translation: [ -5, 0, 1.25 ]
+        geometry: { type: Box, size: [ 0.2, 10.2, 2.5 ] }
+        appearance:
+          material:
+            diffuseColor: [ 1.0, 1.0, 1.0 ]
+      -
+        type: Shape
+        translation: [ 5, 0, 1.25 ]
+        geometry: { type: Box, size: [ 0.2, 10.2, 2.5 ] }
+        appearance:
+          material:
+            diffuseColor: [ 1.0, 1.0, 1.0 ]

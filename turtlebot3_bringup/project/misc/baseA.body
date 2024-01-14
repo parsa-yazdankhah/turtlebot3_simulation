@@ -1,0 +1,60 @@
+format: ChoreonoidBody
+formatVersion: 1.0
+angleUnit: degree
+name: BaseA-50.0
+
+BLOCK: &BLOCK
+  type: Transform
+  elements:
+    -
+      type: Shape
+      geometry: { type: Box, size: [ 1, 0.5, 0.75 ] }
+      appearance:
+          material:
+            diffuseColor: [ 0.6, 0.0, 0.15 ]
+
+
+RING: &RING
+  type: Transform
+  elements:
+    -
+      type: Shape
+      geometry: { type: Box, size: [ 1, 0.5, 0.22375 ] }
+      translation: [ 0, 0, 0.138125 ]
+      appearance:
+          material:
+            diffuseColor: [ 1.0, 1.0, 0.628 ]
+    -
+      type: Shape
+      geometry: { type: Box, size: [ 1, 0.22375, 0.0525 ] }
+      translation: [ 0, 0.138125, 0 ]
+      appearance:
+          material:
+            diffuseColor: [ 1.0, 1.0, 0.628 ]
+    -
+      type: Shape
+      geometry: { type: Box, size: [ 1, 0.22375, 0.0525 ] }
+      translation: [ 0, -0.138125, 0 ]
+      appearance:
+          material:
+            diffuseColor: [ 1.0, 1.0, 0.628 ]
+    -
+      type: Shape
+      geometry: { type: Box, size: [ 1, 0.5, 0.22375 ] }
+      translation: [ 0, 0, -0.138125 ]
+      appearance:
+          material:
+            diffuseColor: [ 1.0, 1.0, 0.628 ]
+
+links:
+  -
+    name: Base
+    jointType: fixed
+    elements: *RING
+  -
+    name: 2ndfloor
+    parent: Base
+    jointType: fixed
+    translation: [ 0, 0, -0.6225 ]
+    elements: *BLOCK
+

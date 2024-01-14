@@ -1,0 +1,799 @@
+format: ChoreonoidBody
+formatVersion: 1.0
+angleUnit: degree
+name: Waffle_body
+rootLink: Waffle_pi_base
+
+links:
+  -
+    name: Waffle_pi_base
+    translation: [ 0.0, 0.0, 0.0145 ]
+    jointType: free
+    mass: 0.300 # 0.2947
+    centerOfMass: [ -0.08, 0.0, 0.0 ]
+    inertia: &PLATE [
+      1.77093e-03,         0.0,        0.0,
+              0.0, 1.77093e-03,        0.0,
+              0.0,         0.0, 3.5378e-03 ]
+    elements:
+      -
+        type: Visual
+        translation: [ 0.0, 0.0, -0.0045 ]
+        scale: [ 0.001, 0.001, 0.001 ]
+        elements:
+          Shape:
+            geometry:
+              type: Resource
+              uri: "resource/turtlebot3_description/meshes/bases/waffle_pi_base.stl"
+            appearance:
+              material:
+                specularColor: [ 0.4, 0.4, 0.4 ]
+                diffuseColor: [ 0.3, 0.3, 0.3 ]
+                emmisiveColor: [ 0.3, 0.3, 0.3 ]
+                shininess: 0.2
+      -
+        type: Collision
+        translation: [ 0.0, 0.0, -0.0045 ]
+        elements:
+          -
+            type: Transform
+            elements: &BOTTOM_PLATE
+              - # Back left
+                name: Bottom_plate_0
+                type: Shape
+                translation: [ -0.0645, 0.0645, 0.0045 ]
+                geometry: &BOTTOM_CENTER_PLATE { type: Box, size: [ 0.099, 0.099, 0.009 ] }
+              -
+                name: Bottom_plate_1
+                type: Shape
+                translation: [ -0.0075, 0.0645, 0.0045 ]
+                geometry: &BOTTOM_SIDE_PLATE_1 { type: Box, size: [ 0.015, 0.085, 0.009 ] }
+              -
+                name: Bottom_plate_2
+                type: Shape
+                translation: [ -0.1205, 0.0645, 0.0045 ]
+                geometry: *BOTTOM_SIDE_PLATE_1
+              -
+                name: Bottom_plate_3
+                type: Shape
+                translation: [ -0.0645, 0.1205, 0.0045 ]
+                geometry: &BOTTOM_SIDE_PLATE_3 { type: Box, size: [ 0.085, 0.015, 0.009 ] }
+              -
+                name: Bottom_plate_4
+                type: Shape
+                translation: [ -0.0645, 0.0075, 0.0045 ]
+                geometry: *BOTTOM_SIDE_PLATE_3
+              -
+                name: Bottom_plate_5
+                type: Shape
+                translation: [ -0.01, 0.021, 0.0045 ]
+                rotation: [ 0, 0, 1, 26.5 ]
+                geometry: &BOTTOM_SIDE_PLATE_5 { type: Box, size: [ 0.018, 0.0075, 0.009 ] }
+              -
+                name: Bottom_plate_6
+                type: Shape
+                translation: [ -0.021, 0.01, 0.0045 ]
+                rotation: [ 0, 0, 1, -26.5 ]
+                geometry: &BOTTOM_SIDE_PLATE_6 { type: Box, size: [ 0.0075, 0.018, 0.009 ] }
+              -
+                name: Bottom_plate_7
+                type: Shape
+                translation: [ -0.01, 0.1075, 0.0045 ]
+                rotation: [ 0, 0, 1, -26.5 ]
+                geometry: *BOTTOM_SIDE_PLATE_5
+              -
+                name: Bottom_plate_8
+                type: Shape
+                translation: [ -0.021, 0.1175, 0.0045 ]
+                rotation: [ 0, 0, 1, 26.5 ]
+                geometry: *BOTTOM_SIDE_PLATE_6
+              -
+                name: Bottom_plate_9
+                type: Shape
+                translation: [ -0.1075, 0.01, 0.0045 ]
+                rotation: [ 0, 0, 1, -63.5 ]
+                geometry: *BOTTOM_SIDE_PLATE_5
+              -
+                name: Bottom_plate_10
+                type: Shape
+                translation: [ -0.1175, 0.021, 0.0045 ]
+                rotation: [ 0, 0, 1, 63.5 ]
+                geometry: *BOTTOM_SIDE_PLATE_6
+              -
+                name: Bottom_plate_11
+                type: Shape
+                translation: [ -0.1075, 0.1175, 0.0045 ]
+                rotation: [ 0, 0, 1, 63.5 ]
+                geometry: *BOTTOM_SIDE_PLATE_5
+              -
+                name: Bottom_plate_12
+                type: Shape
+                translation: [ -0.1175, 0.1075, 0.0045 ]
+                rotation: [ 0, 0, 1, -63.5 ]
+                geometry: *BOTTOM_SIDE_PLATE_6
+              -
+                name: Bottom_plate_13
+                type: Transform
+                translation: [ -0.128, 0.04, 0.00225 ]
+                rotation: [ 1, 0, 0, 90 ]
+                elements: &CYLINDER_0
+                  Shape:
+                    geometry: { type: Cylinder, radius: 0.005, height: 0.0045 }
+              -
+                name: Bottom_plate_14
+                type: Transform
+                translation: [ -0.128, 0.052, 0.00675 ]
+                rotation: [ 1, 0, 0, 90 ]
+                elements: *CYLINDER_0
+              -
+                name: Bottom_plate_15
+                type: Transform
+                translation: [ -0.128, 0.076, 0.00225 ]
+                rotation: [ 1, 0, 0, 90 ]
+                elements: *CYLINDER_0
+              -
+                name: Bottom_plate_16
+                type: Transform
+                translation: [ -0.128, 0.088, 0.00675 ]
+                rotation: [ 1, 0, 0, 90 ]
+                elements: *CYLINDER_0
+              -
+                name: Bottom_plate_17
+                type: Transform
+                translation: [ -0.088, 0.128, 0.00225 ]
+                rotation: [ 1, 0, 0, 90 ]
+                elements: *CYLINDER_0
+              -
+                name: Bottom_plate_18
+                type: Transform
+                translation: [ -0.076, 0.128, 0.00675 ]
+                rotation: [ 1, 0, 0, 90 ]
+                elements: *CYLINDER_0
+              -
+                name: Bottom_plate_19
+                type: Transform
+                translation: [ -0.052, 0.128, 0.00225 ]
+                rotation: [ 1, 0, 0, 90 ]
+                elements: *CYLINDER_0
+              -
+                name: Bottom_plate_20
+                type: Transform
+                translation: [ -0.04, 0.128, 0.00675 ]
+                rotation: [ 1, 0, 0, 90 ]
+                elements: *CYLINDER_0
+          - # Back right
+            type: Transform
+            rotation: [ 0, 0, 1, 90 ]
+            elements: *BOTTOM_PLATE
+          - # Front left
+            type: Transform
+            rotation: [ 0, 0, 1, -90 ]
+            elements: *BOTTOM_PLATE
+          - # Front right
+            type: Transform
+            rotation: [ 0, 0, 1, 180 ]
+            elements: *BOTTOM_PLATE
+  -
+    name: Battery
+    parent: Waffle_pi_base
+    translation: [ 0.0705, 0.0, 0.018 ]
+    jointType: fixed
+    mass: 0.155
+    inertia: [
+      2.4790e-05,        0.0,        0.0,
+             0.0, 1.0274e-04,        0.0,
+             0.0,        0.0, 1.0870e-04 ]
+    elements:
+      -
+        type: Collision
+        elements:
+          Shape:
+            geometry: { type: Box, size: [ 0.085, 0.0345, 0.027 ] }
+  -
+    name: Left_motor
+    parent: Waffle_pi_base
+    translation: [ 0.052, 0.116, 0.0187 ]
+    jointType: fixed
+    elements: &COLLISION_MOTOR
+      -
+        type: RigidBody
+        mass: 0.082
+        inertia: [
+          1.3257e-05,        0.0,        0.0,
+                 0.0, 1.9817e-05,        0.0,
+                 0.0,        0.0, 2.2359e-05 ]
+      -
+        type: Collision
+        elements:
+          Shape:
+            geometry: { type: Box, size: [ 0.046, 0.034, 0.028 ] }
+  -
+    name: Right_motor
+    parent: Waffle_pi_base
+    translation: [ 0.052, -0.116, 0.0187 ]
+    jointType: fixed
+    elements: *COLLISION_MOTOR
+  -
+    name: Short_pole_0
+    parent: Waffle_pi_base
+    translation: [ -0.128, 0.088, 0.021 ]
+    rotation: [ 1, 0, 0, 90 ]
+    jointType: fixed
+    elements: &SHORT_POLE
+      -
+        type: RigidBody
+        mass: 0.01
+        inertia: [
+          9.3813e-07,        0.0,        0.0,
+                 0.0, 9.3813e-07,        0.0,
+                 0.0,        0.0, 6.1250e-08 ]
+      -
+        type: Collision
+        elements:
+          Shape:
+            geometry: { type: Cylinder, radius: 0.0035, height: 0.033 }
+  -
+    name: Short_pole_1
+    parent: Waffle_pi_base
+    translation: [ -0.128, 0.052, 0.021 ]
+    rotation: [ 1, 0, 0, 90 ]
+    jointType: fixed
+    elements: *SHORT_POLE
+  -
+    name: Short_pole_2
+    parent: Waffle_pi_base
+    translation: [ -0.076, 0.128, 0.021 ]
+    rotation: [ 1, 0, 0, 90 ]
+    jointType: fixed
+    elements: *SHORT_POLE
+  -
+    name: Short_pole_3
+    parent: Waffle_pi_base
+    translation: [ -0.04, 0.128, 0.021 ]
+    rotation: [ 1, 0, 0, 90 ]
+    jointType: fixed
+    elements: *SHORT_POLE
+  -
+    name: Short_pole_4
+    parent: Waffle_pi_base
+    translation: [ -0.128, -0.088, 0.0165 ]
+    rotation: [ 1, 0, 0, 90 ]
+    jointType: fixed
+    elements: *SHORT_POLE
+  -
+    name: Short_pole_5
+    parent: Waffle_pi_base
+    translation: [ -0.128, -0.052, 0.0165 ]
+    rotation: [ 1, 0, 0, 90 ]
+    jointType: fixed
+    elements: *SHORT_POLE
+  -
+    name: Short_pole_6
+    parent: Waffle_pi_base
+    translation: [ -0.076, -0.128, 0.0165 ]
+    rotation: [ 1, 0, 0, 90 ]
+    jointType: fixed
+    elements: *SHORT_POLE
+  -
+    name: Short_pole_7
+    parent: Waffle_pi_base
+    translation: [ -0.04, -0.128, 0.0165 ]
+    rotation: [ 1, 0, 0, 90 ]
+    jointType: fixed
+    elements: *SHORT_POLE
+  -
+    name: Short_pole_8
+    parent: Waffle_pi_base
+    translation: [ 0.128, 0.088, 0.0165 ]
+    rotation: [ 1, 0, 0, 90 ]
+    jointType: fixed
+    elements: *SHORT_POLE
+  -
+    name: Short_pole_9
+    parent: Waffle_pi_base
+    translation: [ 0.128, 0.052, 0.0165 ]
+    rotation: [ 1, 0, 0, 90 ]
+    jointType: fixed
+    elements: *SHORT_POLE
+  -
+    name: Short_pole_10
+    parent: Waffle_pi_base
+    translation: [ 0.128, -0.088, 0.021 ]
+    rotation: [ 1, 0, 0, 90 ]
+    jointType: fixed
+    elements: *SHORT_POLE
+  -
+    name: Short_pole_11
+    parent: Waffle_pi_base
+    translation: [ 0.128, -0.052, 0.021 ]
+    rotation: [ 1, 0, 0, 90 ]
+    jointType: fixed
+    elements: *SHORT_POLE
+  -
+    name: Middle_plate
+    parent: Waffle_pi_base
+    translation: [ 0.0, 0.0, 0.0375 ]
+    jointType: fixed
+    elements:
+      -
+        type: RigidBody
+        mass: 0.300 # 0.2947
+        inertia: *PLATE
+      -
+        type: Collision
+        translation: [ 0.0, 0.0, -0.0045 ]
+        elements:
+          -
+            type: Transform
+            elements: *BOTTOM_PLATE
+          - # Back right
+            type: Transform
+            rotation: [ 0, 0, 1, 90 ]
+            elements: *BOTTOM_PLATE
+          - # Front left
+            type: Transform
+            rotation: [ 0, 0, 1, -90 ]
+            elements: *BOTTOM_PLATE
+          - # Front right
+            type: Transform
+            rotation: [ 0, 0, 1, 180 ]
+            elements: *BOTTOM_PLATE
+  - # Back side
+    name: Long_pole_0
+    parent: Middle_plate
+    translation: [ -0.128, 0.076, 0.0205 ]
+    rotation: [ 1, 0, 0, 90 ]
+    jointType: fixed
+    elements: &LONG_POLE
+      -
+        type: RigidBody
+        mass: 0.015
+        inertia: [
+          2.3572e-06,        0.0,        0.0,
+                 0.0, 2.3572e-06,        0.0,
+                 0.0,        0.0, 9.1875e-08 ]
+      -
+        type: Collision
+        elements:
+          Shape:
+            geometry: { type: Cylinder, radius: 0.0035, height: 0.043 }
+  -
+    name: Long_pole_1
+    parent: Middle_plate
+    translation: [ -0.128, -0.076, 0.025 ]
+    rotation: [ 1, 0, 0, 90 ]
+    jointType: fixed
+    elements: *LONG_POLE
+  - # Front side
+    name: Long_pole_2
+    parent: Middle_plate
+    translation: [ 0.128, 0.076, 0.025 ]
+    rotation: [ 1, 0, 0, 90 ]
+    jointType: fixed
+    elements: *LONG_POLE
+  -
+    name: Long_pole_3
+    parent: Middle_plate
+    translation: [ 0.128, -0.076, 0.0205 ]
+    rotation: [ 1, 0, 0, 90 ]
+    jointType: fixed
+    elements: *LONG_POLE
+  -
+    name: Long_pole_4
+    parent: Middle_plate
+    translation: [ -0.088, 0.128, 0.0205 ]
+    rotation: [ 1, 0, 0, 90 ]
+    jointType: fixed
+    elements: *LONG_POLE
+  -
+    name: Long_pole_5
+    parent: Middle_plate
+    translation: [ -0.052, 0.128, 0.0205 ]
+    rotation: [ 1, 0, 0, 90 ]
+    jointType: fixed
+    elements: *LONG_POLE
+  -
+    name: Long_pole_6
+    parent: Middle_plate
+    translation: [ 0.088, 0.128, 0.025 ]
+    rotation: [ 1, 0, 0, 90 ]
+    jointType: fixed
+    elements: *LONG_POLE
+  - # Right side
+    name: Long_pole_7
+    parent: Middle_plate
+    translation: [ -0.088, -0.128, 0.025 ]
+    rotation: [ 1, 0, 0, 90 ]
+    jointType: fixed
+    elements: *LONG_POLE
+  -
+    name: Long_pole_8
+    parent: Middle_plate
+    translation: [ -0.052, -0.128, 0.025 ]
+    rotation: [ 1, 0, 0, 90 ]
+    jointType: fixed
+    elements: *LONG_POLE
+  -
+    name: Long_pole_9
+    parent: Middle_plate
+    translation: [ 0.088, -0.128, 0.0205 ]
+    rotation: [ 1, 0, 0, 90 ]
+    jointType: fixed
+    elements: *LONG_POLE
+  -
+    name: Board
+    parent: Middle_plate
+    translation: [ 0.064, 0.0, 0.01535 ]
+    jointType: fixed
+    mass: 0.05
+    inertia: [
+      2.3450e-05,        0.0,        0.0,
+             0.0, 4.5950e-05,        0.0,
+             0.0,        0.0, 6.9375e-05 ]
+    elements:
+      -
+        type: Collision
+        elements:
+          Shape:
+            geometry: { type: Box, size: [ 0.105, 0.075, 0.0017 ] }
+  -
+    name: Fixture_0
+    parent: Board
+    translation: [ -0.048, -0.033, -0.0059 ]
+    rotation: [ 1, 0, 0, 90 ]
+    elements: &Fixture
+      -
+        type: RigidBody
+        mass: 0.001
+        inertia: [
+          1.1396e-08,        0.0,        0.0,
+                 0.0, 1.1396e-08,        0.0,
+                 0.0,        0.0, 6.1250e-09 ]
+      -
+        type: Collision
+        elements:
+          Shape:
+            geometry: { type: Cylinder, radius: 0.0035, height: 0.01 }
+  -
+    name: Fixture_1
+    parent: Board
+    translation: [ -0.048, 0.033, -0.0059 ]
+    rotation: [ 1, 0, 0, 90 ]
+    elements: *Fixture
+  -
+    name: Fixture_2
+    parent: Board
+    translation: [ 0.048, -0.033, -0.0059 ]
+    rotation: [ 1, 0, 0, 90 ]
+    elements: *Fixture
+  -
+    name: Fixture_3
+    parent: Board
+    translation: [ 0.048, 0.033, -0.0059 ]
+    rotation: [ 1, 0, 0, 90 ]
+    elements: *Fixture
+  -
+    name: Top_plate
+    parent: Middle_plate
+    translation: [ 0.0, 0.0, 0.045 ]
+    jointType: fixed
+    mass: 0.300 # 0.2947
+    inertia: *PLATE
+    elements:
+      -
+        type: Collision
+        translation: [ 0.0, -0.064, -0.0045 ]
+        elements:
+          -
+            type: Transform
+            elements: &TOP_PLATE
+              - # Back center
+                name: Top_plate_0
+                type: Shape
+                translation: [ -0.0645, 0.0645, 0.0045 ]
+                geometry: *BOTTOM_CENTER_PLATE
+              -
+                name: Top_plate_1
+                type: Shape
+                translation: [ -0.0075, 0.0645, 0.0045 ]
+                geometry: *BOTTOM_SIDE_PLATE_1
+              -
+                name: Top_plate_2
+                type: Shape
+                translation: [ -0.1205, 0.0645, 0.0045 ]
+                geometry: *BOTTOM_SIDE_PLATE_1
+              -
+                name: Top_plate_3
+                type: Shape
+                translation: [ -0.0645, 0.1205, 0.0045 ]
+                geometry: *BOTTOM_SIDE_PLATE_3
+              -
+                name: Top_plate_4
+                type: Shape
+                translation: [ -0.0645, 0.0075, 0.0045 ]
+                geometry: *BOTTOM_SIDE_PLATE_3
+              -
+                name: Top_plate_5
+                type: Shape
+                translation: [ -0.01, 0.021, 0.0045 ]
+                rotation: [ 0, 0, 1, 26.5 ]
+                geometry: *BOTTOM_SIDE_PLATE_5
+              -
+                name: Top_plate_6
+                type: Shape
+                translation: [ -0.021, 0.01, 0.0045 ]
+                rotation: [ 0, 0, 1, -26.5 ]
+                geometry: *BOTTOM_SIDE_PLATE_6
+              -
+                name: Top_plate_7
+                type: Shape
+                translation: [ -0.01, 0.1075, 0.0045 ]
+                rotation: [ 0, 0, 1, -26.5 ]
+                geometry: *BOTTOM_SIDE_PLATE_5
+              -
+                name: Top_plate_8
+                type: Shape
+                translation: [ -0.021, 0.1175, 0.0045 ]
+                rotation: [ 0, 0, 1, 26.5 ]
+                geometry: *BOTTOM_SIDE_PLATE_6
+              -
+                name: Top_plate_9
+                type: Shape
+                translation: [ -0.1075, 0.01, 0.0045 ]
+                rotation: [ 0, 0, 1, -63.5 ]
+                geometry: *BOTTOM_SIDE_PLATE_5
+              -
+                name: Top_plate_10
+                type: Shape
+                translation: [ -0.1175, 0.021, 0.0045 ]
+                rotation: [ 0, 0, 1, 63.5 ]
+                geometry: *BOTTOM_SIDE_PLATE_6
+              -
+                name: Top_plate_11
+                type: Shape
+                translation: [ -0.1075, 0.1175, 0.0045 ]
+                rotation: [ 0, 0, 1, 63.5 ]
+                geometry: *BOTTOM_SIDE_PLATE_5
+              -
+                name: Top_plate_12
+                type: Shape
+                translation: [ -0.1175, 0.1075, 0.0045 ]
+                rotation: [ 0, 0, 1, -63.5 ]
+                geometry: *BOTTOM_SIDE_PLATE_6
+              -
+                name: Bottom_plate_13
+                type: Transform
+                translation: [ -0.128, 0.04, 0.00225 ]
+                rotation: [ 1, 0, 0, 90 ]
+                elements: *CYLINDER_0
+              -
+                name: Bottom_plate_14
+                type: Transform
+                translation: [ -0.128, 0.052, 0.00675 ]
+                rotation: [ 1, 0, 0, 90 ]
+                elements: *CYLINDER_0
+              -
+                name: Bottom_plate_15
+                type: Transform
+                translation: [ -0.128, 0.076, 0.00225 ]
+                rotation: [ 1, 0, 0, 90 ]
+                elements: *CYLINDER_0
+              -
+                name: Bottom_plate_16
+                type: Transform
+                translation: [ -0.128, 0.088, 0.00675 ]
+                rotation: [ 1, 0, 0, 90 ]
+                elements: *CYLINDER_0
+          - # Front center
+            type: Transform
+            translation: [ 0.0, 0.128, 0.0 ]
+            rotation: [ 0, 0, 1, 180 ]
+            elements: *TOP_PLATE
+          - # Back left
+            type: Transform
+            translation: [ 0.0, 0.128, 0.0 ]
+            elements:
+              -
+                type: Transform
+                translation: [ 0.0, -0.04, 0.0 ]
+                elements: &HALF_PLATE
+                  -
+                    name: Top_half_plate_0
+                    type: Shape
+                    translation: [ -0.0645, 0.0645, 0.0045 ]
+                    geometry: { type: Box, size: [ 0.099, 0.0495, 0.009 ] }
+                  -
+                    name: Top_half_plate_1
+                    type: Shape
+                    translation: [ -0.0075, 0.061125, 0.0045 ]
+                    geometry: &TOP_HALF_PLATE_1 { type: Box, size: [ 0.015, 0.04275, 0.009 ] }
+                  -
+                    name: Top_half_plate_2
+                    type: Shape
+                    translation: [ -0.1205, 0.061125, 0.0045 ]
+                    geometry: *TOP_HALF_PLATE_1
+                  -
+                    name: Top_half_plate_3
+                    type: Shape
+                    translation: [ -0.0645, 0.0965, 0.0045 ]
+                    geometry: *BOTTOM_SIDE_PLATE_3
+                  -
+                    name: Top_half_plate_4
+                    type: Shape
+                    translation: [ -0.01, 0.0835, 0.0045 ]
+                    rotation: [ 0, 0, 1, -26.5 ]
+                    geometry: *BOTTOM_SIDE_PLATE_5
+                  -
+                    name: Top_half_plate_5
+                    type: Shape
+                    translation: [ -0.021, 0.0945, 0.0045 ]
+                    rotation: [ 0, 0, 1, 26.5 ]
+                    geometry: *BOTTOM_SIDE_PLATE_6
+                  -
+                    name: Top_half_plate_6
+                    type: Shape
+                    translation: [ -0.1075, 0.0945, 0.0045 ]
+                    rotation: [ 0, 0, 1, 63.5 ]
+                    geometry: *BOTTOM_SIDE_PLATE_5
+                  -
+                    name: Top_half_plate_7
+                    type: Shape
+                    translation: [ -0.1175, 0.0835, 0.0045 ]
+                    rotation: [ 0, 0, 1, -63.5 ]
+                    geometry: *BOTTOM_SIDE_PLATE_6
+                  -
+                    name: Top_half_plate_8
+                    type: Transform
+                    translation: [ -0.128, 0.052, 0.00225 ]
+                    rotation: [ 1, 0, 0, 90 ]
+                    elements: *CYLINDER_0
+                  -
+                    name: Top_half_plate_9
+                    type: Transform
+                    translation: [ -0.128, 0.064, 0.00675 ]
+                    rotation: [ 1, 0, 0, 90 ]
+                    elements: *CYLINDER_0
+                  -
+                    name: Top_half_plate_10
+                    type: Transform
+                    translation: [ -0.088, 0.104, 0.00225 ]
+                    rotation: [ 1, 0, 0, 90 ]
+                    elements: *CYLINDER_0
+                  -
+                    name: Top_half_plate_11
+                    type: Transform
+                    translation: [ -0.076, 0.104, 0.00675 ]
+                    rotation: [ 1, 0, 0, 90 ]
+                    elements: *CYLINDER_0
+                  -
+                    name: Top_half_plate_12
+                    type: Transform
+                    translation: [ -0.052, 0.104, 0.00225 ]
+                    rotation: [ 1, 0, 0, 90 ]
+                    elements: *CYLINDER_0
+                  -
+                    name: Top_half_plate_13
+                    type: Transform
+                    translation: [ -0.04, 0.104, 0.00675 ]
+                    rotation: [ 1, 0, 0, 90 ]
+                    elements: *CYLINDER_0
+              - # Back right
+                type: Transform
+                translation: [ 0.0, -0.088, 0.009 ]
+                rotation: [ 1, 0, 0, 180 ]
+                elements: *HALF_PLATE
+              - # Front left
+                type: Transform
+                translation: [ 0.0, -0.04, 0.009   ]
+                rotation: [ 0, 1, 0, 180 ]
+                elements: *HALF_PLATE
+              - # Front right
+                type: Transform
+                translation: [ 0.0, -0.088, 0.0 ]
+                rotation: [ [ 1, 0, 0, 180 ], [ 0, 1, 0, 180 ] ]
+                elements: *HALF_PLATE
+  -
+    name: Attachment
+    parent: Top_plate
+    translation: [ 0.134, 0.0, 0.014 ]
+    jointType: fixed
+    mass: 0.02
+    inertia: [
+      2.2667e-06,        0.0,        0.0,
+             0.0, 1.5467e-06,        0.0,
+             0.0,        0.0, 1.2000e-06 ]
+    elements:
+      -
+        type: Collision
+        elements:
+          Shape:
+            geometry: { type: Box, size: [ 0.012, 0.024, 0.028 ] }
+  -
+    name: Left_wheel
+    parent: Waffle_pi_base
+    translation: [ 0.064, 0.1435, 0.0185 ]
+    jointType: revolute
+    jointAxis: Y
+    jointId: 0
+    jointRange: unlimited
+    rotorInertia: &WHEEL_ROTOR 1.0e-06
+    gearRatio: &GEAR_RATIO 212.6
+    material: Tb3_tire
+    elements:
+      - &WHEEL_RIGID
+        type: RigidBody
+        mass: 2.8498940e-02
+        inertia: [
+          8.5283078e-06,           0.0,           0.0,
+                    0.0, 1.5517673e-05,           0.0,
+                    0.0,           0.0, 8.5283078e-06 ]
+      -
+        type: Visual
+        scale: [ 0.001, 0.001, 0.001 ]
+        elements:
+          Shape:
+            geometry:
+              type: Resource
+              uri: "resource/turtlebot3_description/meshes/wheels/left_tire.stl"
+            appearance: &WHEEL_APPEARANCE
+              material:
+                specularColor: [ 0.5, 0.5, 0.5 ]
+                diffuseColor: [ 0.4, 0.4, 0.4 ]
+                emmisiveColor: [ 0.3, 0.3, 0.3 ]
+                shininess: 0.3
+      - &WHEEL_COLLISION
+        type: Collision
+        elements:
+          Shape:
+            rotation: [ 1, 0, 0, 90 ]
+            geometry: { type: Resource, uri: "resource/donut.stl" }
+  -
+    name: Right_wheel
+    parent: Waffle_pi_base
+    translation: [ 0.064, -0.1435, 0.0185 ]
+    jointType: revolute
+    jointAxis: Y
+    jointId: 1
+    jointRange: unlimited
+    rotorInertia: *WHEEL_ROTOR
+    gearRatio: *GEAR_RATIO
+    material: Tb3_tire
+    elements:
+      - *WHEEL_RIGID
+      -
+        type: Visual
+        scale: [ 0.001, 0.001, 0.001 ]
+        elements:
+          Shape:
+            geometry:
+              type: Resource
+              uri: "resource/turtlebot3_description/meshes/wheels/right_tire.stl"
+            appearance: *WHEEL_APPEARANCE
+      - *WHEEL_COLLISION
+  -
+    name: Left_caster
+    parent: Waffle_pi_base
+    translation: [ -0.113, 0.064, -0.0095 ]
+    jointType: fixed
+    material: Tb3_caster
+    elements: &CASTER
+      RigidBody:
+        mass: 0.005
+        inertia: [ 
+          5.0000e-08,        0.0,        0.0,
+                 0.0, 5.0000e-08,        0.0,
+                 0.0,        0.0, 5.0000e-08 ]
+        elements:
+          -
+            type: Transform
+            elements:
+              Shape:
+                geometry: { type: Sphere, radius: 0.005 }
+                appearance: *WHEEL_APPEARANCE
+  -
+    name: Right_caster
+    parent: Waffle_pi_base
+    translation: [ -0.113, -0.064, -0.0095 ]
+    jointType: fixed
+    material: Tb3_caster
+    elements: *CASTER

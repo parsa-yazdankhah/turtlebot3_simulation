@@ -1,0 +1,766 @@
+format: ChoreonoidBody
+formatVersion: 1.0
+angleUnit: degree
+name: TurtleBot3_house
+
+links:
+  -
+    name: Floor
+    jointType: fixed
+    mass: 400
+    material: Ground
+    elements:
+      Shape:
+        translation: [ 0.0, 0.0, -0.025 ]
+        geometry: { type: Box, size: [ 10.7, 15.15, 0.05 ] }
+        appearance: &APPEARANCE
+          material:
+            diffuseColor: [ 0.5, 0.5, 0.5 ]
+            specularColor: [ 0.2, 0.2, 0.2 ]
+            emisiveColor: [ 0, 0, 0 ]
+  - # Bricks
+    name: Wall_101
+    parent: Floor 
+    rotation: [ 0, 0, 1, -90 ]
+    jointType: fixed
+    mass: 150
+    elements:
+      Shape:
+        translation: [ -0.05, 3.1, 1.25 ]
+        geometry: { type: Box, size: [ 0.15, 4.5, 2.5 ] }
+        appearance: &BRICKS_APPEARANCE_0
+          texture: { url: "resource/texture/bricks.jpg" }
+          textureTransform:
+            rotation: 90
+  -
+    name: Wall_104
+    parent: Wall_101
+    translation: [ 2.3, 3.1, 0.0 ]
+    rotation: [ 0, 0, 1, 90 ]
+    jointType: fixed
+    mass: 150
+    elements:
+      - # Bricks
+        name: Wall_104_0
+        type: Shape
+        translation: [ -0.583752, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 3.3325, 0.15, 2.5 ] }
+        appearance: &BRICKS_APPEARANCE_1
+          texture: { url: "resource/texture/bricks.jpg" }
+      -
+        name: Wall_104_1
+        type: Shape
+        translation: [ 2.11625, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 0.267504, 0.15, 2.5 ] }
+        appearance: *BRICKS_APPEARANCE_0
+      -
+        name: Wall_104_2
+        type: Shape
+        translation: [ 1.5325, 0.0, 2.25 ]
+        geometry: { type: Box, size: [ 0.9, 0.15, 0.5 ] }
+        appearance: &BRICKS_APPEARANCE_2
+          texture: { url: "resource/texture/bricks.jpg" }
+          textureTransform:
+            scale: [ 0.3, 0.3 ]
+  - # Bricks
+    name: Wall_106
+    parent: Wall_101
+    translation: [ 6.2, -0.175, 0.0 ]
+    jointType: fixed
+    mass: 150
+    elements:
+      -
+        name: Wall_106_0
+        type: Shape
+        translation: [ -0.902765, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 0.944471, 0.15, 2.5 ] }
+        appearance: *BRICKS_APPEARANCE_1
+      -
+        name: Wall_106_1
+        type: Shape
+        translation: [ 0.922235, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 0.905529, 0.15, 2.5 ] }
+        appearance: *BRICKS_APPEARANCE_1
+      -
+        name: Wall_106_2
+        type: Shape
+        translation: [ 0.019471, 0.0, 2.25 ]
+        geometry: { type: Box, size: [ 0.9, 0.15, 0.5 ] }
+        appearance: *BRICKS_APPEARANCE_2
+  - # Wood
+    name: Wall_108
+    parent: Wall_101
+    translation: [ -1.37512, -0.17488, 0.0 ]
+    jointType: fixed
+    mass: 150
+    elements:
+      -
+        name: Wall_108_0
+        type: Shape
+        translation: [ -0.856324, 0.0, 0.5 ]
+        geometry: { type: Box, size: [ 5.78735, 0.15, 1.0 ] }
+        appearance: &WOOD_APPEARANCE
+          texture: { url: "resource/texture/wood.jpg" }
+      -
+        name: Wall_108_1
+        type: Shape
+        translation: [ 3.34368, 0.0, 0.5 ]
+        geometry: { type: Box, size: [ 0.812647, 0.15, 1.0 ] }
+        appearance: *WOOD_APPEARANCE
+  - # Wood
+    name: Wall_81
+    parent: Wall_101
+    translation: [ 5.07752, 5.2688, 0.0 ]
+    rotation: [ 0, 0, 1, 180 ]
+    jointType: fixed
+    mass: 150
+    elements:
+      -
+        name: Wall_81_0
+        type: Shape
+        translation: [ 0.0, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 5.0, 0.15, 2.5 ] }
+        appearance: *WOOD_APPEARANCE
+  - # Wood
+    name: Wall_82
+    parent: Wall_101
+    translation: [ 1.25, 5.26876, 0.0 ]
+    rotation: [ 0, 0, 1, 180 ]
+    jointType: fixed
+    mass: 150
+    elements:
+      -
+        name: Wall_82_0
+        type: Shape
+        translation: [ 0.0, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 2.75, 0.15, 2.5 ] }
+        appearance: *WOOD_APPEARANCE
+  - # Wood
+    name: Wall_83
+    parent: Wall_101
+    translation: [ -2.475, 5.275, 0.0 ]
+    rotation: [ 0, 0, 1, 180 ]
+    jointType: fixed
+    mass: 150
+    elements:
+      -
+        name: Wall_82_0
+        type: Shape
+        translation: [ -2.41901, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 0.161986, 0.15, 2.5 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: Wall_82_1
+        type: Shape
+        translation: [ 0.080993, 0.0, 0.25 ]
+        geometry: { type: Box, size: [ 4.83801, 0.15, 0.5 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: Wall_82_2
+        type: Shape
+        translation: [ 0.110246, 0.0, 1.5 ]
+        geometry: { type: Box, size: [ 0.37052, 0.15, 2.0 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: Wall_82_3
+        type: Shape
+        translation: [ -1.20651, 0.0, 2.1 ]
+        geometry: { type: Box, size: [ 2.263, 0.15, 0.8 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: Wall_82_4
+        type: Shape
+        translation: [ 1.39775, 0.0, 2.1 ]
+        geometry: { type: Box, size: [ 2.20449, 0.15, 0.8 ] }
+        appearance: *WOOD_APPEARANCE
+  - # Wood
+    name: Wall_84
+    parent: Wall_101
+    translation: [ -6.2, 5.275, 0.0 ]
+    rotation: [ 0, 0, 1, 180 ]
+    jointType: fixed
+    mass: 150
+    elements:
+      -
+        name: Wall_84_0
+        type: Shape
+        translation: [ 0.0, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 2.75, 0.15, 2.5 ] }
+        appearance: *WOOD_APPEARANCE
+
+  - # Wood
+    name: Wall_85
+    parent: Wall_101
+    translation: [ -7.5, 3.1, 0.0 ]
+    rotation: [ 0, 0, 1, -90 ]
+    jointType: fixed
+    mass: 150
+    elements:
+      -
+        name: Wall_85_0
+        type: Shape
+        translation: [ -1.14694, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 2.20612, 0.15, 2.5 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: Wall_85_1
+        type: Shape
+        translation: [ 1.10306, 0.0, 0.25 ]
+        geometry: { type: Box, size: [ 2.29388, 0.15, 0.5 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: Wall_85_2
+        type: Shape
+        translation: [ 1.76906, 0.0, 1.5 ]
+        geometry: { type: Box, size: [ 0.96188, 0.15, 2.0 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: Wall_85_3
+        type: Shape
+        translation: [ 0.62212, 0.0, 2.1 ]
+        geometry: { type: Box, size: [ 1.332, 0.15, 0.8 ] }
+        appearance: *WOOD_APPEARANCE
+  - # Wood
+    name: Wall_86
+    parent: Wall_101
+    translation: [ -7.5, -1.5, 0.0 ]
+    rotation: [ 0, 0, 1, -90 ]
+    jointType: fixed
+    mass: 150
+    elements:
+      -
+        name: Wall_86_0
+        type: Shape
+        translation: [ -2.21538, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 0.569241, 0.15, 2.5 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: Wall_86_1
+        type: Shape
+        translation: [ 0.28462, 0.0, 0.25 ]
+        geometry: { type: Box, size: [ 4.43076, 0.15, 0.5 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: Wall_86_2
+        type: Shape
+        translation: [ 0.0521, 0.0, 1.5 ]
+        geometry: { type: Box, size: [ 1.14172, 0.15, 2.0 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: Wall_86_3
+        type: Shape
+        translation: [ 2.16098, 0.0, 1.5 ]
+        geometry: { type: Box, size: [ 0.678041, 0.15, 2.0 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: Wall_86_4
+        type: Shape
+        translation: [ -1.22476, 0.0, 2.1 ]
+        geometry: { type: Box, size: [ 1.412, 0.15, 0.8 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: Wall_86_5
+        type: Shape
+        translation: [ 1.22246, 0.0, 2.1 ]
+        geometry: { type: Box, size: [ 1.199, 0.15, 0.8 ] }
+        appearance: *WOOD_APPEARANCE
+  - # Wood
+    name: Wall_87
+    parent: Wall_101
+    translation: [ -6.325, -3.925, 0.0 ]
+    jointType: fixed
+    mass: 150
+    elements:
+      -
+        name: Wall_87_0
+        type: Shape
+        translation: [ 0.0, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 2.5, 0.15, 2.5 ] }
+        appearance: *WOOD_APPEARANCE
+  - # Wood
+    name: Wall_88
+    parent: Wall_101
+    translation: [ -5.15151, -1.49625, 0.0 ]
+    rotation: [ 0, 0, 1, 90 ]
+    jointType: fixed
+    mass: 150
+    elements:
+      -
+        name: Wall_88_0
+        type: Shape
+        translation: [ 0.0, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 5.0, 0.15, 2.5 ] }
+        appearance: *WOOD_APPEARANCE
+  - # Bricks
+    name: Wall_90
+    parent: Wall_101
+    translation: [ 1.125, 0.925, 0.0 ]
+    jointType: fixed
+    mass: 150
+    elements:
+      -
+        name: Wall_90_0
+        type: Shape
+        translation: [ 0.0, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 2.5, 0.15, 2.5 ] }
+        appearance: *BRICKS_APPEARANCE_1
+  - # Bricks
+    name: Wall_91
+    parent: Wall_101
+    translation: [ 2.29994, 0.37506, 0.0 ]
+    rotation: [ 0, 0, 1, -90 ]
+    jointType: fixed
+    mass: 150
+    elements:
+      -
+        name: Wall_91_0
+        type: Shape
+        translation: [ -0.551501, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 0.146998, 0.15, 2.5 ] }
+        appearance: *BRICKS_APPEARANCE_2
+      -
+        name: Wall_91_1
+        type: Shape
+        translation: [ 0.523499, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 0.203002, 0.15, 2.5 ] }
+        appearance: *BRICKS_APPEARANCE_2
+      -
+        name: Wall_91_2
+        type: Shape
+        translation: [ -0.028002, 0.0, 2.25 ]
+        geometry: { type: Box, size: [ 0.9, 0.15, 0.5 ] }
+        appearance: *BRICKS_APPEARANCE_2
+  - # Wood
+    name: Wall_92
+    parent: Wall_101
+    translation: [ 3.59994, -0.17494, 0.0 ]
+    rotation: [ 0, 0, 1, -0.0026356 ]
+    jointType: fixed
+    mass: 150
+    elements:
+      -
+        name: Wall_92_0
+        type: Shape
+        translation: [ 0.0, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 2.75, 0.15, 2.5 ] }
+        appearance: *WOOD_APPEARANCE
+  - # Wood
+    name: Wall_93
+    parent: Wall_101
+    translation: [ 4.9, -2.725, 0.0 ]
+    rotation: [ 0, 0, 1, -90 ]
+    jointType: fixed
+    mass: 150
+    elements:
+      -
+        name: Wall_93_0
+        type: Shape
+        translation: [ 0.0, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 5.25, 0.15, 2.5 ] }
+        appearance: *WOOD_APPEARANCE
+  - # Wood
+    name: Wall_94
+    parent: Wall_101
+    translation: [ 6.2, -5.275, 0.0 ]
+    jointType: fixed
+    mass: 150
+    elements:
+      -
+        name: Wall_94_0
+        type: Shape
+        translation: [ 0.0, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 2.75, 0.15, 2.5 ] }
+        appearance: *WOOD_APPEARANCE
+  - # Bricks
+    name: Wall_95
+    parent: Wall_101
+    translation: [ 7.5, -2.725, 0.0 ]
+    rotation: [ 0, 0, 1, 90 ]
+    jointType: fixed
+    mass: 150
+    elements:
+      -
+        name: Wall_95_0
+        type: Shape
+        translation: [ -2.32929, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 0.591431, 0.15, 2.5 ] }
+        appearance: *BRICKS_APPEARANCE_1
+      -
+        name: Wall_95_1
+        type: Shape
+        translation: [ 0.295715, 0.0, 0.25 ]
+        geometry: { type: Box, size: [ 4.65857, 0.15, 0.5 ] }
+        appearance: *BRICKS_APPEARANCE_0
+      -
+        name: Wall_95_2
+        type: Shape
+        translation: [ -0.036959, 0.0, 1.5 ]
+        geometry: { type: Box, size: [ 1.27522, 0.15, 2.0 ] }
+        appearance: *BRICKS_APPEARANCE_1
+      -
+        name: Wall_95_3
+        type: Shape
+        translation: [ 2.43783, 0.0, 1.5 ]
+        geometry: { type: Box, size: [ 0.374348, 0.15, 2.0 ] }
+        appearance: *BRICKS_APPEARANCE_1
+      -
+        name: Wall_95_4
+        type: Shape
+        translation: [ -1.35407, 0.0, 2.1 ]
+        geometry: { type: Box, size: [ 1.359, 0.15, 0.8 ] }
+        appearance: *BRICKS_APPEARANCE_1
+      -
+        name: Wall_95_5
+        type: Shape
+        translation: [ 1.42565, 0.0, 2.1 ]
+        geometry: { type: Box, size: [ 1.65, 0.15, 0.8 ] }
+        appearance: *BRICKS_APPEARANCE_1
+  - # Wood
+    name: Wall_96
+    parent: Wall_101
+    translation: [ 7.5, 2.5, 0.0 ]
+    rotation: [ 0, 0, 1, 90 ]
+    jointType: fixed
+    mass: 150
+    elements:
+      -
+        name: Wall_96_0
+        type: Shape
+        translation: [ -1.99826, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 1.50348, 0.15, 2.5 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: Wall_96_1
+        type: Shape
+        translation: [ 0.75174, 0.0, 0.25 ]
+        geometry: { type: Box, size: [ 3.99652, 0.15, 0.5 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: Wall_96_2
+        type: Shape
+        translation: [ 2.06924, 0.0, 1.5 ]
+        geometry: { type: Box, size: [ 1.36152, 0.15, 2.0 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: Wall_96_3
+        type: Shape
+        translation: [ 0.070981, 0.0, 2.1 ]
+        geometry: { type: Box, size: [ 2.635, 0.15, 0.8 ] }
+        appearance: *WOOD_APPEARANCE
+  - # Bricks
+    name: Wall_98
+    parent: Wall_101
+    translation: [ -6.325, 0.925, 0.0 ]
+    jointType: fixed
+    mass: 150
+    elements:
+      -
+        name: Wall_98_0
+        type: Shape
+        translation: [ -0.842111, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 0.815777, 0.15, 2.5 ] }
+        appearance: *BRICKS_APPEARANCE_1
+      -
+        name: Wall_98_1
+        type: Shape
+        translation: [ 0.857889, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 0.784223, 0.15, 2.5 ] }
+        appearance: *BRICKS_APPEARANCE_1
+      -
+        name: Wall_98_2
+        type: Shape
+        translation: [ 0.015777, 0.0, 2.25 ]
+        geometry: { type: Box, size: [ 0.9, 0.15, 0.5 ] }
+        appearance: *BRICKS_APPEARANCE_2
+  - # Bricks
+    name: Wall_99
+    parent: Wall_101
+    translation: [ -5.15, 3.1, 0.0 ]
+    rotation: [ 0, 0, 1, -90 ]
+    jointType: fixed
+    mass: 150
+    elements:
+      -
+        name: Wall_99_0
+        type: Shape
+        translation: [ -1.62116, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 1.25768, 0.15, 2.5 ] }
+        appearance: *BRICKS_APPEARANCE_1
+      -
+        name: Wall_99_1
+        type: Shape
+        translation: [ 1.83695, 0.0, 1.25 ]
+        geometry: { type: Box, size: [ 0.826108, 0.15, 2.5 ] }
+        appearance: *BRICKS_APPEARANCE_1
+      -
+        name: Wall_99_2
+        type: Shape
+        translation: [ 0.215786, 0.0, 2.25 ]
+        geometry: { type: Box, size: [ 2.41621, 0.15, 0.5 ] }
+        appearance: *BRICKS_APPEARANCE_2
+  - # Wood
+    name: Bookshelf_0
+    parent: Wall_101
+    translation: [ -6.54397, 5.19486, 0.0 ]
+    jointType: fixed
+    mass: 1
+    elements: &Bookshelf
+      -
+        name: back
+        type: Shape
+        translation: [ 0.0, 0.005, 0.6 ]
+        geometry: { type: Box, size: [ 0.9, 0.01, 1.2 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: left_side
+        type: Shape
+        translation: [ 0.45, -0.195, 0.6 ]
+        geometry: { type: Box, size: [ 0.02, 0.4, 1.2 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: right_side
+        type: Shape
+        translation: [ -0.45, -0.195, 0.6 ]
+        geometry: { type: Box, size: [ 0.02, 0.4, 1.2 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: bottom
+        type: Shape
+        translation: [ 0.0, -0.195, 0.03 ]
+        geometry: { type: Box, size: [ 0.88, 0.4, 0.06 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: top
+        type: Shape
+        translation: [ 0.0, -0.195, 1.19 ]
+        geometry: { type: Box, size: [ 0.88, 0.4, 0.02 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: low_shelf
+        type: Shape
+        translation: [ 0.0, -0.195, 0.43 ]
+        geometry: { type: Box, size: [ 0.88, 0.4, 0.02 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: high_shelf
+        type: Shape
+        translation: [ 0.0, -0.195, 0.8 ]
+        geometry: { type: Box, size: [ 0.88, 0.4, 0.02 ] }
+        appearance: *WOOD_APPEARANCE
+  - # Wood
+    name: Bookshelf_1
+    parent: Wall_101
+    translation: [ 4.72359, 5.17921, 0.0 ]
+    jointType: fixed
+    mass: 1
+    elements: *Bookshelf
+  - # Wood
+    name: Bookshelf_2
+    parent: Wall_101
+    translation: [ 5.64449, 5.17921, 0.0 ]
+    jointType: fixed
+    mass: 1
+    elements: *Bookshelf
+  - # Wood
+    name: Cabinet_0
+    parent: Wall_101
+    translation: [ -5.472, -1.57624, 0.0 ]
+    jointType: fixed
+    mass: 25
+    inertia: [ 2.05,  0.0,  0.0,
+                0.0, 2.05,  0.0,
+                0.0,  0.0, 2.05 ]
+    elements: &CABINET
+      -
+        name: cabinet_bottom_plate
+        type: Transform
+        translation: [ 0.0, 0.0, 0.01 ]
+        elements: &CABINET_BOTTOM_PLATE
+          Shape:
+            geometry: { type: Box, size: [ 0.45, 0.45, 0.02 ] }
+            appearance: *WOOD_APPEARANCE
+      -
+        name: cabinet_bottom_back_plate
+        type: Shape
+        translation: [ 0.235, 0.0, 0.51 ]
+        geometry: { type: Box, size: [ 0.02, 0.45, 1.02 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: cabinet_bottom_left_plate
+        type: Transform
+        translation: [ 0.0, 0.235, 0.51 ]
+        elements: &CABINET_BOTTOM_SIDE_PLATE
+          Shape:
+            geometry: { type: Box, size: [ 0.45, 0.02, 1.02 ] }
+            appearance: *WOOD_APPEARANCE
+      -
+        name: cabinet_bottom_middle_plate
+        type: Transform
+        translation: [ 0.0, 0.0, 0.51 ]
+        elements: *CABINET_BOTTOM_PLATE
+      -
+        name: cabinet_bottom_right_plate
+        type: Shape
+        translation: [ 0.0, -0.235, 0.51 ]
+        elements: *CABINET_BOTTOM_SIDE_PLATE
+      -
+        name: cabinet_bottom_top_plate
+        type: Transform
+        translation: [ 0.0, 0.0, 1.01 ]
+        elements: *CABINET_BOTTOM_PLATE
+  - # Wood
+    name: Cabinet_1
+    parent: Wall_101
+    translation: [ -5.47289, -2.06545, 0.0 ]
+    jointType: fixed
+    mass: 25
+    inertia: [ 2.05,  0.0,  0.0,
+                0.0, 2.05,  0.0,
+                0.0,  0.0, 2.05 ]
+    elements: *CABINET
+  - # Wood
+    name: Cabinet_2
+    parent: Wall_101
+    translation: [ -7.18363, 1.24799, 0.0 ]
+    rotation: [ 0, 0, 1, -90 ]
+    jointType: fixed
+    mass: 25
+    inertia: [ 2.05,  0.0,  0.0,
+                0.0, 2.05,  0.0,
+                0.0,  0.0, 2.05 ]
+    elements: *CABINET
+  - # Wood
+    name: Cafe_table_0
+    parent: Wall_101
+    translation: [ 6.35919, -3.19202, 0.0 ]
+    jointType: fixed
+    mass: 100
+    elements: &CAFE_TABLE
+      -
+        name: surface
+        type: Shape
+        translation: [ 0.0, 0.0, 0.755 ]
+        geometry: { type: Box, size: [ 0.913, 0.913, 0.04 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: column
+        type: Shape
+        translation: [ 0.0, 0.0, 0.37 ]
+        geometry: { type: Box, size: [ 0.042, 0.042, 0.74 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: base
+        type: Shape
+        translation: [ 0.0, 0.0, 0.02 ]
+        geometry: { type: Box, size: [ 0.56, 0.56, 0.04 ] }
+        appearance: *WOOD_APPEARANCE
+  - # Wood
+    name: Cafe_table_1
+    parent: Wall_101
+    translation: [ 6.35903, -2.27759, 0.0 ]
+    jointType: fixed
+    mass: 100
+    elements: *CAFE_TABLE
+#  - # Wood
+#    name: Trash_can_0
+#    parent: Wall_101
+#    translation: [ 1.88346, 1.91193, 0.0 ]
+#    jointType: fixed
+#    mass: 4.83076
+#    inertia: [ 0.281534,      0.0,      0.0,
+#                    0.0, 0.281534,      0.0,
+#                    0.0,      0.0, 0.281534 ]
+#    elements: &TRASH_CAN
+#      -
+#        name: surface
+#        type: Shape
+#        translation: [ 0.0, 0.0, 0.755 ]
+#        geometry: { type: Box, size: [ 0.913, 0.913, 0.04 ] }
+#        appearance: *APPEARANCE
+#      -
+#        name: column
+#        type: Shape
+#        translation: [ 0.0, 0.0, 0.37 ]
+#        geometry: { type: Box, size: [ 0.042, 0.042, 0.74 ] }
+#        appearance: *APPEARANCE
+#      -
+#        name: base
+#        type: Shape
+#        translation: [ 0.0, 0.0, 0.02 ]
+#        geometry: { type: Box, size: [ 0.56, 0.56, 0.04 ] }
+#        appearance: *APPEARANCE
+  - # Wood
+    name: Table
+    parent: Wall_101
+    translation: [ -2.65728, 2.42376, 0.0 ]
+    jointType: fixed
+    mass: 120
+    elements: &TABLE
+      -
+        name: surface
+        type: Shape
+        translation: [ 0.0, 0.0, 1.0 ]
+        geometry: { type: Box, size: [ 1.5, 0.8, 0.03 ] }
+        appearance: *WOOD_APPEARANCE
+      -
+        name: front_left_leg
+        type: Transform
+        translation: [ 0.68, 0.38, 0.5 ]
+        elements: &LEG
+          Shape:
+            rotation: [ 1, 0, 0, 90 ]
+            geometry: { type: Cylinder, radius: 0.02, height: 1.0 }
+            appearance: *APPEARANCE
+      -
+        name: front_right_leg
+        type: Transform
+        translation: [ 0.68, -0.38, 0.5 ]
+        elements: *LEG
+      -
+        name: back_right_leg
+        type: Transform
+        translation: [ -0.68, -0.38, 0.5 ]
+        elements: *LEG
+      -
+        name: back_left_leg
+        type: Transform
+        translation: [ -0.68, 0.38, 0.5 ]
+        elements: *LEG
+  - # Wood
+    name: Table_marble
+    parent: Wall_101
+    translation: [ 4.88346, 2.92577, 0.648 ]
+    jointType: fixed
+    mass: 120
+    elements:
+      -
+        name: surface
+        type: Shape
+        translation: [ 0.0, 0.0, 0.55 ]
+        geometry: { type: Box, size: [ 2.5, 1.8, 0.2 ] }
+        appearance:
+          texture: { url: "resource/texture/marble.jpg" }
+      -
+        name: front_left_leg
+        type: Transform
+        translation: [ 0.88, 0.58, -0.099 ]
+        elements: &LEG_MARBLE
+          Shape:
+            rotation: [ 1, 0, 0, 90 ]
+            geometry: { type: Cylinder, radius: 0.08, height: 1.098 }
+            appearance: *APPEARANCE
+      -
+        name: front_right_leg
+        type: Transform
+        translation: [ 0.88, -0.58, -0.099 ]
+        elements: *LEG_MARBLE
+      -
+        name: back_right_leg
+        type: Transform
+        translation: [ -0.88, -0.58, -0.099 ]
+        elements: *LEG_MARBLE
+      -
+        name: back_left_leg
+        type: Transform
+        translation: [ -0.88, 0.58, -0.099 ]
+        elements: *LEG_MARBLE

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>turtlebot3_description</name>
+  <version>1.0.0</version>
+  <description>3D models of the TurtleBot3 for visualization</description>
+
+  <maintainer email="tsuyoshian@fsk-brain.co.jp">Tsuyoshi Anazawa</maintainer>
+  <license>MIT</license>
+
+  <author email="tsuyoshian@fsk-brain.co.jp">Tsuyoshi Anazawa</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roslaunch</build_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>rviz</exec_depend>
+  <depend>urdf</depend>
+  <depend>xacro</depend>
+</package>

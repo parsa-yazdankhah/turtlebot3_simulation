@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>turtlebot3_bringup</name>
+  <version>1.0.0</version>
+  <description>roslaunch scripts for starting the choreonoid turtleBot3 model</description>
+
+  <maintainer email="tsuyoshian@fsk-brain.co.jp">Tsuyoshi Anazawa</maintainer>
+  <license>MIT</license>
+
+  <author email="tsuyoshian@fsk-brain.co.jp">Tsuyoshi Anazawa</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>choreonoid</depend>
+  <depend>choreonoid_ros</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>trajectory_msgs</depend>
+
+  <export>
+    <build_type>cmake</build_type>
+  </export>
+
+</package>

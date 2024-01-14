@@ -1,0 +1,11 @@
+<launch>
+  <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle_pi, waffle_pi_open_manipulator]"/>
+  <!-- param name="use_sim_time" value="true"/ -->
+  
+  <!-- Choreonoid ROS -->
+  <node pkg="choreonoid_ros" name="choreonoid" type="choreonoid" 
+    args="$(find turtlebot3_bringup)/project/$(arg model).cnoid --start-simulation"/>
+  
+  <!-- RViz -->
+  <include file="$(find turtlebot3_description)/launch/display.launch"/>
+</launch>

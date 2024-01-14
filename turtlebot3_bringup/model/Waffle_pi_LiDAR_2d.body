@@ -1,0 +1,120 @@
+format: ChoreonoidBody
+formatVersion: 1.0
+angleUnit: degree
+name: waffle_pi
+
+links:
+  -
+    name: Waffle_pi
+    type: SubBody
+    uri: "Waffle_body.body"
+  -
+    name: LiDAR_link
+    parent: Top_plate
+    translation: [ 0.01, 0.0, 0.0238 ]
+    jointType: fixed
+    mass: 0.125
+    inertia: [
+      5.3344e-05,        0.0,        0.0,
+             0.0, 1.0022e-04,        0.0,
+             0.0,        0.0, 1.2187e-04 ]
+    elements:
+      -
+        type: Visual
+        translation: [ -0.01, 0.0, 0.011 ]
+        scale: [ 0.001, 0.001, 0.001 ]
+        elements:
+          Shape:
+            geometry:
+              type: Resource
+              uri: "resource/turtlebot3_description/meshes/sensors/lds.stl"
+            appearance:
+              material:
+                specularColor: [ 0.4, 0.4, 0.4 ]
+                diffuseColor: [ 0.3, 0.3, 0.3 ]
+                emmisiveColor: [ 0.3, 0.3, 0.3 ]
+      -
+        type: Collision
+        translation: [ -0.01, 0.0, 0.011 ]
+        elements:
+          -
+            type: Shape
+            translation: [ 0.0, 0.0, -0.021 ]
+            geometry: { type: Box, size: [ 0.061, 0.06, 0.018 ] }
+          -
+            type: Shape
+            translation: [ 0.031, 0.0, -0.021 ]
+            rotation: [ 1, 0, 0, 90 ]
+            geometry: { type: Cylinder, radius: 0.03, height: 0.018 }
+          -
+            type: Shape
+            translation: [ 0.0, 0.0, -0.0015 ]
+            rotation: [ 1, 0, 0, 90 ]
+            geometry: { type: Cylinder, radius: 0.032, height: 0.021 }
+      -
+        type: RangeSensor
+        name: LiDAR
+        translation: [ 0.0135, 0.013, 0.016 ]
+        rotation: [ [ 1, 0, 0, 90 ], [ 0, 1, 0, -90 ] ]
+        yawRange: 360.0
+        yawStep:  1.0
+        pitchRange: 0.0
+        pitchStep: 1.0
+        scanRate:  5.0
+        maxDistance: 3.5
+        minDistance: 0.1
+        on: true
+  -
+    name: RealSense_R200
+    parent: Attachment
+    # Default
+    translation: [ 0.006, -0.0015, 0.003 ]
+    rotation: [ [ 0, 0, 1, 90 ], [ 1, 0, 0, 85 ] ]
+    centerOfMass: [ 0.0, 0.0, 0.0 ]
+    jointType: fixed
+    mass: 0.035
+    inertia: [
+      1.2717e-06,        0.0,        0.0,
+             0.0, 4.9397e-05,        0.0,
+             0.0,        0.0, 5.0458e-05 ]
+    elements:
+      -
+        type: Visual
+        translation: [ -0.065, -0.01, 0.0 ]
+        elements:
+          Resource: { uri: "resource/turtlebot3_description/meshes/sensors/r200.dae" }
+      -
+        type: Collision
+        elements:
+          Shape:
+            translation: [ 0.0, 0.0, 0.0026 ]
+            geometry: { type: Box, size: [ 0.13, 0.02, 0.006 ] } 
+      -
+        type: Camera
+        name: RealSense
+        translation: [ 0.0135, 0.013, 0.016 ]
+        rotation: [ 0, 1, 0, 180 ]
+        format: COLOR_DEPTH
+        lensType: Normal
+        on: true
+        width: 640
+        height: 480
+        fieldOfView: 50
+        nearClipDistance: 0.03
+        farClipDistance: 20.0 # 4.0
+        frameRate: 60
+        id: 0
+  -
+    name: Imu_link
+    parent: Waffle_pi_base
+    translation: [ 0.0, 0.0, 0.068 ]
+    mass: 0.001
+    elements:
+      -
+        type: AccelerationSensor
+        name: AccelSensor
+        id: 1
+      -
+        type: RateGyroSensor
+        name: GyroSensor
+        id: 2

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>turtlebot3_navigation</name>
+  <version>1.0.0</version>
+  <description>The turtlebot_navigation provides roslaunch scripts for starting the navigation.</description>
+  <license>MIT</license>
+  <author email="tsuyoshian@fsk-brain.co.jp">Tsuyoshi Anazawa</author>
+  <maintainer email="tsuyoshian@fsk-brain.co.jp">tsuyoshian@fsk-brain.co.jp</maintainer>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>choreonoid</depend>
+  <depend>choreonoid_ros</depend>
+  <depend>std_msgs</depend>
+  <exec_depend>map_server</exec_depend>
+  <exec_depend>move_base</exec_depend>
+  <exec_depend>turtlebot3_bringup</exec_depend>
+  
+</package>

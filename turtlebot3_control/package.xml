@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>turtlebot3_control</name>
+  <version>1.0.0</version>
+  <description>Provides simplecontroller for the choreonoid turtlebot3 model</description>
+
+  <maintainer email="tsuyoshian@fsk-brain.co.jp">Tsuyoshi Anazawa</maintainer>
+  <license>MIT</license>
+  
+  <author email="tsuyoshian@fsk-brain.co.jp">Tsuyoshi Anazawa</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roslaunch</build_depend>
+  <!-- <build_depend>message_generation</build_depend> -->
+  <exec_depend>controller_interface</exec_depend>
+  <exec_depend>controller_manager</exec_depend>
+  <exec_depend>joint_state_controller</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>ros_control</exec_depend>
+  <exec_depend>ros_controllers</exec_depend>
+  <exec_depend>position_controllers</exec_depend>
+  <exec_depend>effort_controllers</exec_depend>
+  <exec_depend>diff_drive_controller</exec_depend>
+  <exec_depend>amcl</exec_depend>
+  <exec_depend>map_server</exec_depend>
+  <exec_depend>move_base</exec_depend>
+  <!-- <exec_depend>message_runtime</exec_depend> -->
+  <depend>choreonoid</depend>
+  <depend>choreonoid_ros</depend>
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>trajectory_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>tf</depend>
+  <depend>costmap_2d</depend>
+  <export>
+    <build_type>cmake</build_type>
+  </export>
+</package>
